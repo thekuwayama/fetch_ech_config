@@ -62,3 +62,4 @@ resolve(ARGV[0], SERVER, PORT, HOSTNAME).each do |rr|
 end
 
 # TODO: refine ech_config to pp
+# https://www.ietf.org/archive/id/draft-ietf-tls-esni-15.html#section-4-2
