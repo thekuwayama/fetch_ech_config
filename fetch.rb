@@ -55,8 +55,8 @@ if ARGV.empty?
 end
 
 resolve(ARGV[0], SERVER, PORT, HOSTNAME).each do |rr|
-  next until rr.kind_of?(Resolv::DNS::Resource::IN::HTTPS)
-  next until rr.svc_params.keys.include?('ech')
+  next unless rr.kind_of?(Resolv::DNS::Resource::IN::HTTPS)
+  next unless rr.svc_params.keys.include?('ech')
 
   pp rr.svc_params['ech']
 end
