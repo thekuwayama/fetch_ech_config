@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ech_config (0.0.1)
+      sorbet-runtime
+    openssl (3.0.0)
+    sorbet-runtime (0.5.10626)
+    svcb_rr_patch (0.0.6)
+      ech_config
+
+PLATFORMS
+  x86_64-darwin-21
+
+DEPENDENCIES
+  openssl
+  svcb_rr_patch
+
+BUNDLED WITH
+   2.3.20
