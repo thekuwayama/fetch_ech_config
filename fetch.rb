@@ -19,7 +19,7 @@ def resolve(name, server, port, hostname)
   sess.close
   result = resp.answer.map(&:last)
   if result.empty?
-    warn 'error: not found'
+    warn "error: #{name} is not found"
     exit 1
   end
 
@@ -51,13 +51,20 @@ def gen_session(server, port, hostname)
 end
 
 if ARGV.empty?
-  warn 'error: not specified name'
+  warn 'error: not specified name with ARGV'
   exit 1
 end
 
 resolve(ARGV[0], SERVER, PORT, HOSTNAME).each do |rr|
-  next unless rr.is_a?(Resolv::DNS::Resource::IN::HTTPS)
-  next unless rr.svc_params.keys.include?('ech')
+  unless rr.is_a?(Resolv::DNS::Resource::IN::HTTPS)
+    warn 'warn: fetched rr is not HTTPS'
+    next
+  end
+
+  unless rr.svc_params.keys.include?('ech')
+    warn 'warn: rr does not have `ech`'
+    next
+  end
 
   echconfiglist = rr.svc_params['ech'].echconfiglist
   puts '---------- hex dump ----------'
