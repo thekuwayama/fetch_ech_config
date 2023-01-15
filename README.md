@@ -1,6 +1,6 @@
 # fetch_ech_config
 
-`fetch_ech_config` fetches ECHConfig.
+`fetch_ech_config` fetches ECHConfig using DNS over TLS.
 
 You can run test client the following:
 
