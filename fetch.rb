@@ -61,8 +61,7 @@ resolve(ARGV[0], SERVER, PORT, HOSTNAME).each do |rr|
 
   echconfiglist = rr.svc_params['ech'].echconfiglist
   puts '---------- hex dump ----------'
-  echconfiglist.each_with_index do |c, i|
-    puts "ECHConfig #{i}"
+  echconfiglist.each do |c|
     puts c.encode.unpack1('H*').scan(/.{2}/).each_slice(8).map { |a| a.join(' ') }.each_slice(2).map { |a| a.join('      ') + "\n" }.join
   end
 

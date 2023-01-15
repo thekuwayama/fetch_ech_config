@@ -9,6 +9,7 @@ GEM
       ech_config
 
 PLATFORMS
+  arm64-darwin-21
   x86_64-darwin-21
 
 DEPENDENCIES
