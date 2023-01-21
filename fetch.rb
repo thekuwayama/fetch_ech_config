@@ -92,6 +92,6 @@ resolve(ARGV[0], SERVER, PORT, HOSTNAME).each do |rr|
     end
     puts "    maximum_name_length(uint8):\t\t#{echconfig_contents.maximum_name_length}"
     puts "    public_name(opaque):\t\t#{echconfig_contents.public_name}"
-    puts "    extensions(opaque<0..2^16-1>):\t#{echconfig_contents.extensions.octet.then { |s| [s.length].pack('n') + s }.unpack1('H*').scan(/.{2}/).join(' ')}"
+    puts "    extensions(opaque):\t\t\t#{echconfig_contents.extensions.octet.unpack1('H*').scan(/.{2}/).join(' ')}"
   end
 end

@@ -36,5 +36,5 @@ ECHConfig:
         aead_id(uint16):                00 01
     maximum_name_length(uint8):         0
     public_name(opaque):                cloudflare-esni.com
-    extensions(opaque<0..2^16-1>):      00 00
+    extensions(opaque):
 ```
